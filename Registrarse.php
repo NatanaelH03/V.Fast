@@ -34,22 +34,35 @@ else {
 }
 }
 ?>
+<!--FIN DEL PHP-->
+<!--HTML FORM-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" type="text/css" href="css/Bootstrap.min.css">
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REGISTRO</title>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    
 </head>
 <body>
+<div class="container">
+        <div class="container-profile">
+            <span class="logo">
+                <img src="img/logovfast.png" alt="vfast">
+            </span>
+</div>
 <div class="row d-flex justify-content-center">
-<h1 class="text-center display-6 mt-5">REGISTRO | V.FAST</h1>
-<h1 class="text-center display-6 mt-0">______________________________________________</h1>
-<form class="" action="" method="POST">
-    <input type="text" name="nick" placeholder="Nombre de Usuario" class="form-control" required>
-    <input type="text" name="Nombre" placeholder="Nombre(s)" class="form-control" required>
-    <input type="text" name="ApellidoP" placeholder="Apellido Paterno" class="form-control" required>
-    <input type="text" name="ApellidoM" placeholder="Apellido Materno" class="form-control" required>
-    <select class="form-control" name="genero" >
+<!--FORMULARIO-->
+<div class="container-form">
+<form class="form" action="" method="POST">
+    <h3 class="text-center">REGISTRO | V.FAST </h3>
+    <input type="text" name="nick" placeholder="Nombre de Usuario" class="cuadros" required>
+    <input type="text" name="Nombre" placeholder="Nombre(s)" class="cuadros" required>
+    <input type="text" name="ApellidoP" placeholder="Apellido Paterno" class="cuadros" required>
+    <input type="text" name="ApellidoM" placeholder="Apellido Materno" class="cuadros" required>
+    <select class="cuadros" name="genero" placeholder="genero" >
         <option value="">Selecciona tu genero</option>
          <?php while($row = $guardar->fetch_assoc()){?>
           <option value="<?php echo $row['Id_Genero']; ?>"<?php echo $row['NomGenero']; ?>></option>
@@ -57,18 +70,28 @@ else {
 
     </select>
 
-    <select class="form-control" name="tusuario" >
+    <select class="cuadros" name="tusuario" >
         <option value="">Selecciona el Tipo de Usuario</option>
          <?php while($row = $guardarlo->fetch_assoc()){?>
           <option value="<?php echo $row['Id_Tusuario']; ?>"<?php echo $row['NombreTusu']; ?>></option>
          <?php } ?>   
 
     </select>
-    <input type="email" name="email" placeholder="Email" class="form-control" required>
-    <input type="password" name="password" placeholder="Contraseña" class="form-control" required>
+    <input type="email" name="email" placeholder="Email" class="cuadros" required>
+    <input type="password" name="password" placeholder="Contraseña" class="cuadros" required>
 
-<input type="submit" name="registrar" value="registrar" class="btn btn-sm btn-block btn-succes">
+<input type="submit" name="registrar" value="REGISTRARSE" class="btn btn-sm btn-block cuadros" >
+<!--INICIAR SESION-->
+                    <div class="my-3">
+                        <span>¿No tienes cuenta? <a href="#">Inicia sesión aquí</a></span> <br>
+                        <span><a href="recu.html">¿Olvidaste tu contraseña?</a></span>
+                    </div>
+                    
 </form>
+         </div>
+         </div>
+         </div>
 <?php echo $mensaje; ?>
+<script src="js/bootstrap.min.js"></script>   
 </body>
 </html>
